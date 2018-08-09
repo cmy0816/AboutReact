@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import {
-  DatePicker
-} from 'antd';
-import {BrowserRouter,Router,Switch,Redirect} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import store from './store/index.js';
+import Router from './router';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        
-      </div>
+      <Provider store={store}>
+        <div className = "App" >
+          <Router/>
+          </div>
+      </Provider>
     );
   }
 }
