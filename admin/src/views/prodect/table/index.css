@@ -1,0 +1,25 @@
+.img-item img{
+    width:80%;
+    height:auto;
+    display:block;
+    margin-left:10%;
+}
+.img-item dd{
+    text-align: center;
+}
+.img-item dd h6{
+    font-weight: 400;
+    text-align: center;
+    margin-top:10px;
+}
+.ant-table-thead>tr>th {
+    text-align: center;
+}
+.active{
+    height:100%;
+}
+.word{
+    width:100%;
+    height:100%;
+    text-align: center;
+}

@@ -1,8 +1,13 @@
-import { Layout,Icon } from 'antd';
+import { Layout, Icon, Avatar, Button} from 'antd';
 import React from 'react';
 import Menu from './component/menu'
+import Container from '@/components/Container.jsx';
 const { Header, Sider, Content } = Layout;
 class SiderDemo extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+    
     state = {
         collapsed: false,
     };
@@ -12,7 +17,10 @@ class SiderDemo extends React.Component {
             collapsed: !this.state.collapsed,
         });
     }
-
+    upload(){
+        window.localStorage.clear();
+        window.location.href='/'
+    }
     render() {
         return (
             <Layout>
@@ -21,6 +29,8 @@ class SiderDemo extends React.Component {
                     collapsible
                     collapsed={this.state.collapsed}
                 >
+                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" style={{"position":'absolute','right':'-1100px'}}/>
+                <Button onClick={this.upload.bind(this)}>退出登录</Button>
                 <Menu/>
                 </Sider>
                 <Layout>
@@ -32,7 +42,7 @@ class SiderDemo extends React.Component {
                         />
                     </Header>
                     <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
-                        Content
+                        <Container {...this.props}/>
           </Content>
                 </Layout>
             </Layout>

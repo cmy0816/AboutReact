@@ -6,9 +6,27 @@ class NormalLoginForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
-            if (!err) {
+            let { userName, password} = values;
+            if (err) {
                 console.log('Received values of form: ', values);
+            }else{
+                console.log('vvv');
+                fetch('/api/signIn', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'user=' + userName + '&pwd=' + password,
+                    credentials: 'include'
+                }).then(
+                    res => {
+                        res.json().then(data => {
+                            window.localStorage.setItem('user',userName);
+                            window.location.href='/';
+                        })
+                    });
             }
+
         });
     }
 
